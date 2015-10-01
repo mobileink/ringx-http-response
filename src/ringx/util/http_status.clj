@@ -1,4 +1,4 @@
-(ns ring.util.http-status)
+(ns ringx.util.http-status)
 
 (def continue 100)
 (def switching-protocols 101)

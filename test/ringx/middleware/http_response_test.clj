@@ -1,6 +1,6 @@
-(ns ring.middleware.http-response-test
+(ns ringx.middleware.http-response-test
   (:require [midje.sweet :refer :all]
-            [ring.middleware.http-response :refer :all]
+            [ringx.middleware.http-response :refer :all]
             [ring.util.http-response :refer :all]))
 
 (defmacro always [& body] `(fn [_#] ~@body))

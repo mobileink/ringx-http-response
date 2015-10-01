@@ -1,10 +1,10 @@
-(ns ring.util.http-response
+(ns ringx.util.http-response
   (:require [slingshot.slingshot :refer [throw+]]
             [potemkin.namespaces :as p]
              ring.util.response))
 
 (defn throw!
-  "Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  "Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   [response]
   {:pre (map? response)}
   (throw+ {:type ::response :response response}))
@@ -197,7 +197,7 @@
 (defn bad-request!
   "400 Bad Request (ClientError)
   The request contains bad syntax or cannot be fulfilled.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (bad-request! nil))
   ([body]
    (throw!
@@ -217,7 +217,7 @@
 (defn unauthorized!
   "401 Unauthorized (ClientError)
   Authentication is possible but has failed or not yet been provided.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (unauthorized! nil))
   ([body]
    (throw!
@@ -237,7 +237,7 @@
 (defn payment-required!
   "402 Payment Required (ClientError)
   Reserved for future use.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (payment-required! nil))
   ([body]
    (throw!
@@ -257,7 +257,7 @@
 (defn forbidden!
   "403 Forbidden (ClientError)
   The request was a legal request but the server is refusing to respond to it.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (forbidden! nil))
   ([body]
    (throw!
@@ -277,7 +277,7 @@
 (defn not-found!
   "404 Not Found (ClientError)
   The requested resource could not be found but may be available again in the future.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (not-found! nil))
   ([body]
    (throw!
@@ -297,7 +297,7 @@
 (defn method-not-allowed!
   "405 Method Not Allowed (ClientError)
   A request was made of a resource using a request method not supported by that resource;
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (method-not-allowed! nil))
   ([body]
    (throw!
@@ -317,7 +317,7 @@
 (defn not-acceptable!
   "406 Not Acceptable (ClientError)
   The requested resource is only capable of generating content not acceptable according to the Accept headers sent in the request.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (not-acceptable! nil))
   ([body]
    (throw!
@@ -337,7 +337,7 @@
 (defn proxy-authentication-required!
   "407 Proxy Authentication Required (ClientError)
   Proxy authentication is required to access the requested resource.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (proxy-authentication-required! nil))
   ([body]
    (throw!
@@ -357,7 +357,7 @@
 (defn request-timeout!
   "408 Request Timeout (ClientError)
   The server timed out waiting for the request.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (request-timeout! nil))
   ([body]
    (throw!
@@ -377,7 +377,7 @@
 (defn conflict!
   "409 Conflict (ClientError)
   The request could not be processed because of conflict in the request such as an edit conflict.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (conflict! nil))
   ([body]
    (throw!
@@ -397,7 +397,7 @@
 (defn gone!
   "410 Gone (ClientError)
   The resource requested is no longer available and will not be available again.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (gone! nil))
   ([body]
    (throw!
@@ -417,7 +417,7 @@
 (defn length-required!
   "411 Length Required (ClientError)
   The request did not specify the length of its content which is required by the requested resource.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (length-required! nil))
   ([body]
    (throw!
@@ -437,7 +437,7 @@
 (defn precondition-failed!
   "412 Precondition Failed (ClientError)
   The server does not meet one of the preconditions that the requester put on the request.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (precondition-failed! nil))
   ([body]
    (throw!
@@ -457,7 +457,7 @@
 (defn request-entity-too-large!
   "413 Request Entity Too Large (ClientError)
   The request is larger than the server is willing or able to process.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (request-entity-too-large! nil))
   ([body]
    (throw!
@@ -477,7 +477,7 @@
 (defn request-uri-too-long!
   "414 Request-URI Too Long (ClientError)
   The URI provided was too long for the server to process.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (request-uri-too-long! nil))
   ([body]
    (throw!
@@ -497,7 +497,7 @@
 (defn unsupported-media-type!
   "415 Unsupported Media Type (ClientError)
   The request entity has a media type which the server or resource does not support.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (unsupported-media-type! nil))
   ([body]
    (throw!
@@ -517,7 +517,7 @@
 (defn requested-range-not-satisfiable!
   "416 Requested Range Not Satisfiable (ClientError)
   The client has asked for a portion of the file but the server cannot supply that portion.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (requested-range-not-satisfiable! nil))
   ([body]
    (throw!
@@ -537,7 +537,7 @@
 (defn expectation-failed!
   "417 Expectation Failed (ClientError)
   The server cannot meet the requirements of the Expect request-header field.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (expectation-failed! nil))
   ([body]
    (throw!
@@ -557,7 +557,7 @@
 (defn enhance-your-calm!
   "420 Enhance Your Calm (ClientError)
   You are being rate-limited.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (enhance-your-calm! nil))
   ([body]
    (throw!
@@ -577,7 +577,7 @@
 (defn unprocessable-entity!
   "422 Unprocessable Entity (ClientError)
   The request was well-formed but was unable to be followed due to semantic errors.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (unprocessable-entity! nil))
   ([body]
    (throw!
@@ -597,7 +597,7 @@
 (defn locked!
   "423 Locked (ClientError)
   The resource that is being accessed is locked.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (locked! nil))
   ([body]
    (throw!
@@ -617,7 +617,7 @@
 (defn failed-dependency!
   "424 Failed Dependency (ClientError)
   The request failed due to failure of a previous request.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (failed-dependency! nil))
   ([body]
    (throw!
@@ -637,7 +637,7 @@
 (defn unordered-collection!
   "425 Unordered Collection (ClientError)
   The collection is unordered.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (unordered-collection! nil))
   ([body]
    (throw!
@@ -657,7 +657,7 @@
 (defn upgrade-required!
   "426 Upgrade Required (ClientError)
   The client should switch to a different protocol.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (upgrade-required! nil))
   ([body]
    (throw!
@@ -677,7 +677,7 @@
 (defn precondition-required!
   "428 Precondition Required (ClientError)
   The server requires the request to be conditional.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (precondition-required! nil))
   ([body]
    (throw!
@@ -697,7 +697,7 @@
 (defn too-many-requests!
   "429 Too Many Requests (ClientError)
   The user has sent too many requests in a given amount of time.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (too-many-requests! nil))
   ([body]
    (throw!
@@ -717,7 +717,7 @@
 (defn request-header-fields-too-large!
   "431 Request Header Fields Too Large (ClientError)
   The server is unwilling to process the request because either an individual header field or all the header fields collectively are too large.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (request-header-fields-too-large! nil))
   ([body]
    (throw!
@@ -737,7 +737,7 @@
 (defn retry-with!
   "449 Retry With (ClientError)
   The request should be retried after doing the appropriate action.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (retry-with! nil))
   ([body]
    (throw!
@@ -757,7 +757,7 @@
 (defn blocked-by-windows-parental-controls!
   "450 Blocked by Windows Parental Controls (ClientError)
   Windows Parental Controls are turned on and are blocking access to the given webpage.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (blocked-by-windows-parental-controls! nil))
   ([body]
    (throw!
@@ -777,7 +777,7 @@
 (defn unavailable-for-legal-reasons!
   "451 Unavailable For Legal Reasons (ClientError)
   Resource access is denied for legal reasons.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (unavailable-for-legal-reasons! nil))
   ([body]
    (throw!
@@ -797,7 +797,7 @@
 (defn internal-server-error!
   "500 Internal Server Error (ServerError)
   There was an internal server error.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (internal-server-error! nil))
   ([body]
    (throw!
@@ -817,7 +817,7 @@
 (defn not-implemented!
   "501 Not Implemented (ServerError)
   The server either does not recognize the request method or it lacks the ability to fulfill the request.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (not-implemented! nil))
   ([body]
    (throw!
@@ -837,7 +837,7 @@
 (defn bad-gateway!
   "502 Bad Gateway (ServerError)
   The server was acting as a gateway or proxy and received an invalid response from the upstream server.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (bad-gateway! nil))
   ([body]
    (throw!
@@ -857,7 +857,7 @@
 (defn service-unavailable!
   "503 Service Unavailable (ServerError)
   The server is currently unavailable (because it is overloaded or down for maintenance).
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (service-unavailable! nil))
   ([body]
    (throw!
@@ -877,7 +877,7 @@
 (defn gateway-timeout!
   "504 Gateway Timeout (ServerError)
   The server was acting as a gateway or proxy and did not receive a timely request from the upstream server.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (gateway-timeout! nil))
   ([body]
    (throw!
@@ -897,7 +897,7 @@
 (defn http-version-not-supported!
   "505 HTTP Version Not Supported (ServerError)
   The server does not support the HTTP protocol version used in the request.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (http-version-not-supported! nil))
   ([body]
    (throw!
@@ -917,7 +917,7 @@
 (defn variant-also-negotiates!
   "506 Variant Also Negotiates (ServerError)
   Transparent content negotiation for the request results in a circular reference.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (variant-also-negotiates! nil))
   ([body]
    (throw!
@@ -937,7 +937,7 @@
 (defn insufficient-storage!
   "507 Insufficient Storage (ServerError)
   Insufficient storage to complete the request.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (insufficient-storage! nil))
   ([body]
    (throw!
@@ -957,7 +957,7 @@
 (defn loop-detected!
   "508 Loop Detected (ServerError)
   The server detected an infinite loop while processing the request.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (loop-detected! nil))
   ([body]
    (throw!
@@ -977,7 +977,7 @@
 (defn bandwidth-limit-exceeded!
   "509 Bandwidth Limit Exceeded (ServerError)
   Bandwidth limit has been exceeded.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (bandwidth-limit-exceeded! nil))
   ([body]
    (throw!
@@ -997,7 +997,7 @@
 (defn not-extended!
   "510 Not Extended (ServerError)
   Further extensions to the request are required for the server to fulfill it.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (not-extended! nil))
   ([body]
    (throw!
@@ -1017,7 +1017,7 @@
 (defn network-authentication-required!
   "511 Network Authentication Required (ServerError)
   The client needs to authenticate to gain network access.
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (network-authentication-required! nil))
   ([body]
    (throw!
@@ -1037,7 +1037,7 @@
 (defn network-read-timeout!
   "598 Network read timeout (ServerError)
   
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (network-read-timeout! nil))
   ([body]
    (throw!
@@ -1057,7 +1057,7 @@
 (defn network-connect-timeout!
   "599 Network connect timeout (ServerError)
   
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   ([] (network-connect-timeout! nil))
   ([body]
    (throw!

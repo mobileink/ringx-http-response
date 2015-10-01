@@ -1,10 +1,10 @@
-(ns ring.util.http-response
+(ns ringx.util.http-response
   (:require [slingshot.slingshot :refer [throw+]]
             [potemkin.namespaces :as p]
              ring.util.response))
 
 (defn throw!
-  "Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  "Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   [response]
   {:pre (map? response)}
   (throw+ {:type ::response :response response}))
@@ -23,7 +23,7 @@
 (defn {{fn-name}}!
   "{{status}} {{name}} ({{type}})
   {{description}}
-  Slingshots an exception with :type :ring.util.http-response/response and the full response in :response"
+  Slingshots an exception with :type :ringx.util.http-response/response and the full response in :response"
   {{#entity?}}([] ({{fn-name}}! nil)){{/entity?}}
   ([body]
    (throw!
