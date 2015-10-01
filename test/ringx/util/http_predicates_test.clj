@@ -1,6 +1,6 @@
-(ns ring.util.http-predicates-test
+(ns ringx.util.http-predicates-test
   (:require [midje.sweet :refer :all]
-            [ring.util.http-predicates :refer :all]))
+            [ringx.util.http-predicates :refer :all]))
 
 
 (facts "predicates for http status codes"
