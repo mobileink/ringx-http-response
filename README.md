@@ -1,9 +1,13 @@
-# ring-http-response [![Build Status](https://travis-ci.org/metosin/ring-http-response.svg?branch=master)](https://travis-ci.org/metosin/ring-http-response) [![Dependencies Status](http://jarkeeper.com/metosin/ring-http-response/status.png)](http://jarkeeper.com/metosin/ring-http-response)
+# ringx-http-response [![Build Status](https://travis-ci.org/metosin/ring-http-response.svg?branch=master)](https://travis-ci.org/metosin/ring-http-response) [![Dependencies Status](http://jarkeeper.com/metosin/ring-http-response/status.png)](http://jarkeeper.com/metosin/ring-http-response)
+
+**Fork of [ring-http-response](https://github.com/metosin/ring-http-response)**.  The only change is from _ring_ to _ringx_, since it is not an official _ring_ library.
 
 Handling HTTP Statuses with Clojure(Script), originally ported from the awesome [Spray](http://spray.io/).
 Mostly a drop-in-place replacement for `ring.util.response`.
 
 ## Latest version
+
+This fork is not on clojars.  The original is at:
 
 [![Clojars Project](http://clojars.org/metosin/ring-http-response/latest-version.svg)](http://clojars.org/metosin/ring-http-response)
 
@@ -14,7 +18,7 @@ Mostly a drop-in-place replacement for `ring.util.response`.
 Functions take either a `body`, `url` or nothing as parameters in align to the [spec](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
 ```clojure
-(require '[ring.util.http-response :refer :all])
+(require '[ringx.util.http-response :refer :all])
 
 (continue)
 ; {:status 100, :headers {}, :body ""}
@@ -31,7 +35,7 @@ Functions take either a `body`, `url` or nothing as parameters in align to the [
 Available for both Clojure & ClojureScript.
 
 ```clojure
-(require '[ring.util.http-predicates :as predicates])
+(require '[ringx.util.http-predicates :as predicates])
 
 (predicates/ok? {:status 200})
 ; true
@@ -45,7 +49,7 @@ Available for both Clojure & ClojureScript.
 For referring HTTP codes by name & for api docs like [Swagger](https://github.com/metosin/ring-swagger).
 
 ```clojure
-(require '[ring.util.http-status :as status])
+(require '[ringx.util.http-status :as status])
 
 status/ok
 ; 200
@@ -75,14 +79,14 @@ response wrapped in an `ExceptionInfo`.
 ; {:status 400, :headers {}, :body "fail"}
 
 (bad-request! "fail")
-; clojure.lang.ExceptionInfo: throw+: {:type :ring.util.http-response/response, :response {:status 400, :headers {}, :body "fail"}}
+; clojure.lang.ExceptionInfo: throw+: {:type :ringx.util.http-response/response, :response {:status 400, :headers {}, :body "fail"}}
 ```
 
 There is also a `throw!` function to slingshot any kind response in an exception.
 
 ```clojure
 (throw! (header (bad-request "body") "header" "value"))
-; clojure.lang.ExceptionInfo: throw+: {:type :ring.util.http-response/response, :response {:status 400, :headers {"header" "value"}, :body "body"}}
+; clojure.lang.ExceptionInfo: throw+: {:type :ringx.util.http-response/response, :response {:status 400, :headers {"header" "value"}, :body "body"}}
 ```
 
 ### Catching thrown HTTP responses
@@ -92,14 +96,14 @@ See the [facts](https://github.com/metosin/ring-http-response/blob/master/test/r
 
 ## Migrating from ring.util.response
 1. add the dependency
-2. change your imports from `ring.util.response` to `ring.util.http-response`
+2. change your imports from `ring.util.response` to `ringx.util.http-response`
 3. convert your responses to use the correct HTTP-terms:
    - 200: `response` => `ok`
    - 302: `redirect` => `found`
    - 303: `redirect-after-post` => `see-other`
 4. enjoy
 
-`created` and `not-found` are same in both packages. Also rest of the public vars in `ring.util.response` are available via `ring.util.http-response`.
+`created` and `not-found` are same in both packages. Also rest of the public vars in `ring.util.response` are available via `ringx.util.http-response`.
 These include: `status`, `header` `file-response`, `content-type`, `charset`, `set-cookie`,
 `response?`, `url-response`, `resource-response` and `get-header`.
 
