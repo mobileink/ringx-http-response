@@ -1,4 +1,4 @@
-(ns ring.util.http-predicates)
+(ns ringx.util.http-predicates)
 
 (defn informational?
   "Check whether the response type is Informational (status code is between

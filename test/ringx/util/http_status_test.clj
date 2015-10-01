@@ -1,6 +1,6 @@
-(ns ring.util.http-status-test
+(ns ringx.util.http-status-test
   (:require [midje.sweet :refer :all]
-            [ring.util.http-status :refer :all]))
+            [ringx.util.http-status :refer :all]))
 
 
 (facts "http status codes"

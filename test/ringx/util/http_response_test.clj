@@ -1,7 +1,7 @@
-(ns ring.util.http-response-test
+(ns ringx.util.http-response-test
   (:require [midje.sweet :refer :all]
             [slingshot.slingshot :refer [try+]]
-            [ring.util.http-response :refer :all]))
+            [ringx.util.http-response :refer :all]))
 
 (facts "http-responses"
 
@@ -84,7 +84,7 @@
   (throws clojure.lang.ExceptionInfo
     (fn [x]
       (let [{:keys [response type]} (-> x .getData)]
-        (and (= type :ring.util.http-response/response)
+        (and (= type :ringx.util.http-response/response)
           (= response expected))))))
 
 (facts "Slingshotting error-responses with !"
