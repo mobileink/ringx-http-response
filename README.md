@@ -1,6 +1,6 @@
 # ringx-http-response [![Build Status](https://travis-ci.org/metosin/ring-http-response.svg?branch=master)](https://travis-ci.org/metosin/ring-http-response) [![Dependencies Status](http://jarkeeper.com/metosin/ring-http-response/status.png)](http://jarkeeper.com/metosin/ring-http-response)
 
-**Fork of [ring-http-response](https://github.com/metosin/ring-http-response)**.  The only change is from _ring_ to _ringx_, since it is not an official _ring_ library.
+**Fork of [ring-http-response](https://github.com/metosin/ring-http-response)**.  The only change is from _ring_ to _ringx_ to avoid confusion, since this is not an official _ring_ library.
 
 Handling HTTP Statuses with Clojure(Script), originally ported from the awesome [Spray](http://spray.io/).
 Mostly a drop-in-place replacement for `ring.util.response`.
